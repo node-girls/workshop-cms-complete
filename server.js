@@ -1,5 +1,6 @@
 var http = require('http');
 var fs = require('fs');
+var querystring = require('querystring');
 
 var message;
 
@@ -32,6 +33,20 @@ function handler (request, response) {
         response.writeHead(200, {"Content-Type": "text/html"});
         response.write(message);
         response.end();
+
+    } else if (endpoint === '/create-post') {
+
+        message = "";
+        
+        request.on("data", function(data) {
+            message += data;
+        });
+
+        request.on("end", function () {
+            message = querystring.parse(message);
+            console.log(message.blogpost);
+            response.end();
+        });
 
     } else {
 
