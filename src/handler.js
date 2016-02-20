@@ -4,7 +4,7 @@ var querystring = require('querystring');
 var message;
 
 function handler (request, response) {
-
+    
     var endpoint = request.url;
     console.log(endpoint);
 
@@ -17,22 +17,6 @@ function handler (request, response) {
             response.write(file);
             response.end();
         });
-    } else if (endpoint === '/node') {
-
-        message = "I love node!";
-
-        response.writeHead(200, {"Content-Type": "text/html"});
-        response.write(message);
-        response.end();
-
-    } else if (endpoint === '/girls') {
-
-        message = "Node Girls is cool!";
-
-        response.writeHead(200, {"Content-Type": "text/html"});
-        response.write(message);
-        response.end();
-
     } else if (endpoint === '/create-post') {
 
         message = "";
