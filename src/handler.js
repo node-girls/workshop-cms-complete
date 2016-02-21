@@ -6,7 +6,6 @@ var message;
 function handler (request, response) {
 
     var endpoint = request.url;
-    console.log(endpoint);
 
     if (endpoint === '/') {
 
@@ -42,6 +41,7 @@ function handler (request, response) {
         });
 
         request.on("end", function () {
+            response.writeHead(302, {"Location": "/"});
             message = querystring.parse(message);
             console.log(message.blogpost);
             response.end();
