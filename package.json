@@ -1,5 +1,5 @@
 {
-  "name": "workshop-cms",
+  "name": "workshop-cms-complete",
   "version": "1.0.0",
   "description": "A cool CMS for blogging",
   "main": "server.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/node-girls/workshop-cms.git"
+    "url": "git+https://github.com/node-girls/workshop-cms-complete.git"
   },
   "keywords": [
     "CMS",
@@ -18,7 +18,7 @@
   "author": "node-girls",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/node-girls/workshop-cms/issues"
+    "url": "https://github.com/node-girls/workshop-cms-complete/issues"
   },
-  "homepage": "https://github.com/node-girls/workshop-cms#readme"
+  "homepage": "https://github.com/node-girls/workshop-cms-complete#readme"
 }
