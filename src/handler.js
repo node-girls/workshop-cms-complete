@@ -18,7 +18,7 @@ function handler (request, response) {
             response.write(file);
             response.end();
         });
-    } else if (request.method === 'POST') {
+    } else if (endpoint === '/add-post') {
 
         var data = "";
 
