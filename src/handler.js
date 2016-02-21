@@ -1,7 +1,6 @@
 var fs = require('fs');
 var querystring = require('querystring');
 
-var message;
 
 function handler (request, response) {
     
@@ -17,17 +16,17 @@ function handler (request, response) {
             response.write(file);
             response.end();
         });
-    } else if (endpoint === '/create-post') {
+    } else if (request.method === 'POST') {
 
-        message = "";
+        var data = "";
         
-        request.on("data", function(data) {
-            message += data;
+        request.on("data", function(chunk) {
+            data += chunk;
         });
 
         request.on("end", function () {
-            message = querystring.parse(message);
-            console.log(message.blogpost);
+            response.writeHead(302, {"Location": "/"});
+            var convertedData = querystring.parse(data);
             response.end();
         });
 
