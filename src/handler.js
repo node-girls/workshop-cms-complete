@@ -1,11 +1,9 @@
 var fs = require('fs');
 var querystring = require('querystring');
 
-
 function handler (request, response) {
     
     var endpoint = request.url;
-    console.log(endpoint);
 
     if (endpoint === '/') {
 
