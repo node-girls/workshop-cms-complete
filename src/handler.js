@@ -20,12 +20,32 @@ function handler (request, response) {
         
         request.on("data", function(chunk) {
             data += chunk;
+            var post = querystring.parse(data);
+            post.timestamp = Date.now();
+            console.log(post);
+
+            fs.writeFile(__dirname + '/posts.json', JSON.stringify(post), function (err) {
+                if (err) {
+                    console.log(err);
+                }
+            })
         });
 
         request.on("end", function () {
-            response.writeHead(302, {"Location": "/"});
+        
             var convertedData = querystring.parse(data);
-            response.end();
+            fs.readFile(__dirname + "/posts.json", "utf8", function (err, data) {
+
+                if (err) {
+                    console.log(err);
+                } 
+
+                response.writeHead(200);
+                response.write(data);
+                response.end();
+                
+            });
+            
         });
 
     } else {
