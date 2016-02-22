@@ -41,7 +41,7 @@ function handler (request, response) {
 
                 blogposts[currentTime] = newPost.blogpost;
 
-                fs.writeFile(__dirname + '/posts.json', JSON.stringify(blogposts), function (error) {
+                fs.writeFile(__dirname + '/posts.json', JSON.stringify(blogposts, null, 4), function (error) {
 
                     if (error) {
                         console.log(error);
